@@ -1,0 +1,31 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1",
+        "update_url": null
+    },
+    "exported_at": "2021-10-26T21:13:16+01:00",
+    "name": "Satisfactory",
+    "author": "support@jesternetworks.co.uk",
+    "description": "Satisfactory update 5 dedicated server",
+    "features": null,
+    "images": [
+        "quay.io\/pterodactyl\/core:source"
+    ],
+    "file_denylist": [],
+    "startup": "\/home/container/SatisfactoryDedicatedServer/FactoryServer.sh -unattended",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"Engine is initialized.\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "apt update\r\napt -y --no-install-recommends install curl unzip lib32gcc1 ca-certificates\r\ncd \/tmp\r\ncurl -sSL -o steamcmd.tar.gz http:\/\/media.steampowered.com\/installer\/steamcmd_linux.tar.gz\r\nmkdir -p \/mnt\/server\/steam\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steam\r\ncd \/mnt\/server\/steam\r\nchown -R root:root \/mnt\r\nexport InstallationDir=\/mnt\/server\/SatisfactoryDedicatedServer\r\nmkdir -p \/mnt\/server\/SatisfactoryDedicatedServer\r\nchmod +x \/mnt\/server\/SatisfactoryDedicatedServer\/start_server.sh\r\ncp -v \/mnt\/server\/steam\/linux32\/steamclient.so \/mnt\/server\/.steam\/sdk32\/steamclient.so\r\n.\/steamcmd.sh +login anonymous +force_install_dir $InstallationDir +app_update 1690800 validate +quit",
+            "container": "debian:buster-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": []
+}
