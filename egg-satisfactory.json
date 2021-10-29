@@ -4,7 +4,7 @@
         "version": "PTDL_v1",
         "update_url": null
     },
-    "exported_at": "2021-10-26T21:13:16+01:00",
+    "exported_at": "2021-10-29T13:37:27+01:00",
     "name": "Satisfactory",
     "author": "support@jesternetworks.co.uk",
     "description": "Satisfactory update 5 dedicated server",
@@ -13,7 +13,7 @@
         "quay.io\/pterodactyl\/core:source"
     ],
     "file_denylist": [],
-    "startup": "\/home/container/SatisfactoryDedicatedServer/FactoryServer.sh -unattended",
+    "startup": "\/home\/container\/SatisfactoryDedicatedServer\/FactoryServer.sh -unattended -{{ServerQueryPort}} -{{BeaconPort}} -{{GamePort}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Engine is initialized.\"\r\n}",
@@ -27,5 +27,33 @@
             "entrypoint": "bash"
         }
     },
-    "variables": []
+    "variables": [
+        {
+            "name": "Query Port",
+            "description": "",
+            "env_variable": "ServerQueryPort",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string|max:20"
+        },
+        {
+            "name": "Beacon Port",
+            "description": "",
+            "env_variable": "BeaconPort",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string|max:20"
+        },
+        {
+            "name": "Game Port",
+            "description": "Port that Satisfactory runs on",
+            "env_variable": "GamePort",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|string|max:20"
+        }
+    ]
 }
