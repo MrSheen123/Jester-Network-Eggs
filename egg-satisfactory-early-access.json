@@ -4,7 +4,7 @@
         "version": "PTDL_v1",
         "update_url": null
     },
-    "exported_at": "2021-11-24T09:38:03+00:00",
+    "exported_at": "2021-12-04T20:16:50+00:00",
     "name": "Satisfactory early access",
     "author": "support@jesternetworks.co.uk",
     "description": "Satisfactory early access update 5 dedicated server",
@@ -13,7 +13,7 @@
         "quay.io\/pterodactyl\/core:source"
     ],
     "file_denylist": [],
-    "startup": "\/home\/container\/SatisfactoryDedicatedServer\/FactoryServer.sh -unattended -{{ServerQueryPort}} -{{BeaconPort}} -{{GamePort}}",
+    "startup": "\/home\/container\/SatisfactoryDedicatedServer\/FactoryServer.sh -unattended -ServerQueryPort={{ServerQueryPort}} -BeaconPort{={BeaconPort}} -GamePort={{GamePort}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Engine is initialized.\"\r\n}",
