@@ -13,7 +13,7 @@
         "quay.io\/pterodactyl\/core:source"
     ],
     "file_denylist": [],
-    "startup": "\/home\/container\/SatisfactoryDedicatedServer\/FactoryServer.sh -unattended -ServerQueryPort={{ServerQueryPort}} -BeaconPort{={BeaconPort}} -GamePort={{GamePort}}",
+    "startup": "\/home\/container\/SatisfactoryDedicatedServer\/FactoryServer.sh -unattended -ServerQueryPort={{ServerQueryPort}} -BeaconPort={{BeaconPort}} -GamePort={{GamePort}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Engine is initialized.\"\r\n}",
